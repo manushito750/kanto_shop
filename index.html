@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanto Shop | Tienda Pokémon en Perú</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f7fb;--card:#fff;--tx:#14213d;--mu:#5b6478;--ln:#e1e4ee;--red:#e63a1e;--yel:#ffd23f;--nav:#14213d;--navtx:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--card:#18213a;--tx:#eef1fa;--mu:#a3adc7;--ln:#2a3556;--nav:#0a0f1c}}
+:root[data-theme="dark"]{--bg:#0e1424;--card:#18213a;--tx:#eef1fa;--mu:#a3adc7;--ln:#2a3556;--nav:#0a0f1c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*:before,*:after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3,.logo{font-family:Fredoka,"Trebuchet MS",system-ui,sans-serif;margin:0;line-height:1.15}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.w{max-width:1180px;margin:0 auto;padding:0 16px}
+.top{background:var(--red);color:#fff;font-size:14px;text-align:center;padding:7px 12px;font-weight:600}
+header{background:var(--nav);color:var(--navtx);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+.hr{display:flex;align-items:center;gap:14px;padding:12px 0;flex-wrap:wrap}
+.logo{font-size:26px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer;background:none;color:inherit;padding:0}
+.ball{width:28px;height:28px;border-radius:50%;background:linear-gradient(#e63a1e 46%,#14213d 46% 54%,#fff 54%);border:3px solid #fff;position:relative;display:inline-block;flex:none}
+.ball:after{content:"";position:absolute;inset:50% auto auto 50%;width:9px;height:9px;margin:-4.5px;background:#fff;border:2px solid #14213d;border-radius:50%}
+.sb{flex:1;min-width:220px;position:relative;display:flex}
+.sb input{flex:1;padding:11px 14px;border-radius:10px 0 0 10px;border:0;font:inherit;color:#14213d;min-width:0}
+.sb button{background:var(--yel);color:#14213d;font-weight:700;border-radius:0 10px 10px 0;padding:0 16px}
+.sg{position:absolute;top:100%;left:0;right:0;background:var(--card);color:var(--tx);border-radius:0 0 10px 10px;box-shadow:0 8px 24px #0004;display:none;overflow:hidden}
+.sg button{display:block;width:100%;text-align:left;background:none;color:inherit;padding:9px 14px;border-radius:0}
+.sg button:hover{background:var(--bg)}
+.ic{display:flex;gap:6px}
+.ic button{background:#ffffff1a;color:#fff;padding:9px 12px;position:relative;font-size:18px}
+.ic i{position:absolute;top:-5px;right:-5px;background:var(--red);font-style:normal;font-size:11px;font-weight:700;border-radius:99px;padding:1px 6px}
+nav{background:#ffffff10}
+nav .w{display:flex;gap:4px;overflow-x:auto}
+nav button{background:none;color:#fff;padding:10px 14px;border-radius:0;font-weight:600;white-space:nowrap;border-bottom:3px solid transparent}
+nav button:hover,nav button.on{border-color:var(--yel)}
+nav button.of{color:var(--yel)}
+.hero{position:relative;overflow:hidden;border-radius:18px;margin:20px 0;min-height:290px;color:#fff}
+.sl{position:absolute;inset:0;display:flex;align-items:center;padding:32px clamp(20px,5vw,60px);opacity:0;transition:opacity .5s;pointer-events:none}
+.sl.on{opacity:1;pointer-events:auto}
+.sl>div{max-width:520px;position:relative;z-index:1}
+.sl h1{font-size:clamp(28px,5vw,46px);margin-bottom:10px}
+.sl p{margin:0 0 18px;font-size:18px}
+.sl .bg{position:absolute;right:-60px;top:50%;width:360px;height:360px;margin-top:-180px;border-radius:50%;background:linear-gradient(#ffffff30 46%,#0003 46% 54%,#ffffff55 54%);display:grid;place-items:center;font-size:130px}
+.sl .bg:before{content:"";position:absolute;width:90px;height:90px;border-radius:50%;background:#ffffffcc;border:10px solid #0003;z-index:0}
+.sl .bg span{position:relative;z-index:1;display:none}
+.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2}
+.dots button{width:11px;height:11px;padding:0;border-radius:50%;background:#fff6}
+.dots button.on{background:#fff}
+.btn{background:var(--yel);color:#14213d;font-weight:700;padding:11px 20px;display:inline-block}
+.btn.r{background:var(--red);color:#fff}
+.btn.o{background:none;border:2px solid var(--ln);color:var(--tx)}
+h2.t{font-size:26px;margin:34px 0 14px;display:flex;justify-content:space-between;align-items:baseline}
+h2.t small{font:600 14px system-ui;color:var(--mu)}
+.qc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.qc button{padding:22px 10px;color:#fff;font:600 18px Fredoka,system-ui;text-align:center;border-radius:14px}
+.qc span{display:block;font-size:38px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.vis{aspect-ratio:1/1;background:radial-gradient(circle at 30% 25%,#fff4,transparent 55%),var(--k);display:grid;place-items:center;position:relative;cursor:pointer;color:#fff}
+.vis span{font-size:72px;filter:drop-shadow(0 6px 8px #0004)}
+.vis b{position:absolute;left:10px;bottom:10px;background:#0006;padding:2px 10px;border-radius:99px;font-size:12px}
+.tag{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;z-index:1}
+.tag.pv{background:#3b4cca}
+.hb{position:absolute;top:8px;right:8px;background:#fffd;width:34px;height:34px;padding:0;border-radius:50%;z-index:1;font-size:17px}
+.cb{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cb h3{font-size:16px;cursor:pointer}
+.pr{font-weight:700;font-size:18px}.pr s{color:var(--mu);font-weight:400;font-size:14px;margin-left:6px}
+.cb .btn{margin-top:auto;text-align:center}
+.pk{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px}
+.pk button{flex:none;width:88px;background:none;color:var(--tx);text-align:center;padding:0}
+.pk span{display:grid;place-items:center;width:72px;height:72px;margin:0 auto 4px;border-radius:50%;font-size:34px;border:3px solid var(--yel);background:var(--card)}
+.tr{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:22px}
+.tr div{display:flex;gap:12px;align-items:flex-start}.tr em{font-style:normal;font-size:30px}.tr b{display:block}.tr small{color:var(--mu)}
+.cat{display:grid;grid-template-columns:250px 1fr;gap:22px;margin-top:20px}
+aside{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:16px;align-self:start}
+aside h4{margin:14px 0 6px;font:600 15px Fredoka,system-ui}aside h4:first-child{margin-top:0}
+aside label{display:block;font-size:14px;padding:2px 0;cursor:pointer}
+.det{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:20px}
+.th{display:flex;gap:8px;margin-top:8px}.th button{flex:1;padding:8px 4px;background:var(--card);color:var(--tx);border:2px solid var(--ln);font-size:13px}.th button.on{border-color:var(--red)}
+.seal{display:inline-flex;gap:8px;align-items:center;background:#16a34a22;color:#15803d;font-weight:700;padding:6px 12px;border-radius:99px;font-size:14px}
+@media(prefers-color-scheme:dark){.seal{color:#4ade80}}
+select,.f input,.f textarea{padding:10px;border-radius:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font:inherit;width:100%}
+.opt{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 16px}
+.opt button{background:var(--card);color:var(--tx);border:2px solid var(--ln);padding:8px 14px}.opt button.on{border-color:var(--red);background:#e63a1e18}
+table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid var(--ln);padding:6px;text-align:center}
+footer{background:var(--nav);color:#cfd6ea;margin-top:50px;padding:36px 0 20px;font-size:14px}
+footer .g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px}
+footer h4{color:#fff;margin:0 0 8px;font:600 16px Fredoka,system-ui}
+footer a{display:block;text-decoration:none;padding:2px 0;cursor:pointer}footer a:hover{color:var(--yel)}
+.pay{display:flex;flex-wrap:wrap;gap:6px}.pay span{background:#fff;color:#14213d;font-weight:700;font-size:12px;padding:3px 9px;border-radius:6px}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--card);z-index:40;transform:translateX(100%);transition:transform .25s;display:flex;flex-direction:column;box-shadow:-8px 0 30px #0005;padding-top:env(safe-area-inset-top,0px)}
+.dr.on{transform:none}
+.dr .bd{flex:1;overflow:auto;padding:0 16px}
+.ci{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--ln);font-size:14px}
+.ci .m{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-size:24px;background:var(--k)}
+.bar{height:8px;background:var(--ln);border-radius:9px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;background:var(--red)}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--nav);color:#fff;padding:10px 18px;border-radius:99px;z-index:60;display:none;font-size:14px}
+#fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:var(--red);color:#fff;font-size:28px;z-index:50;box-shadow:0 6px 18px #0006}
+#chat{position:fixed;right:18px;bottom:calc(90px + env(safe-area-inset-bottom,0px));width:min(370px,calc(100% - 36px));height:min(560px,calc(100% - 130px));background:var(--card);border:1px solid var(--ln);border-radius:16px;z-index:50;display:none;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px #0006}
+#chat.on{display:flex}
+#chat header{position:static;padding:12px 14px;background:var(--red);display:flex;justify-content:space-between;align-items:center;font-weight:700}
+#chat header button{background:none;color:#fff;font-size:20px}
+#msgs{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
+.m1,.m2{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14px;white-space:pre-line}
+.m1{background:var(--bg);align-self:flex-start}.m2{background:var(--red);color:#fff;align-self:flex-end}
+.fq{display:flex;gap:6px;overflow-x:auto;padding:6px 10px;border-top:1px solid var(--ln)}
+.fq button{flex:none;font-size:12px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);padding:5px 10px;border-radius:99px}
+.cf{padding:8px 10px;border-top:1px solid var(--ln);display:grid;gap:6px}
+.cf .row{display:flex;gap:6px}.cf .row button{flex:1;padding:8px;font-size:13px;font-weight:700;color:#fff}
+.cf input{padding:8px;border-radius:8px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font:inherit;font-size:14px;width:100%}
+@media(max-width:800px){.cat,.det{grid-template-columns:1fr}.sl .bg{opacity:.35}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="top">🚚 Envíos a todo el Perú | Envío gratis en compras desde S/ 199</div>
+<header><div class="w hr">
+<button class="logo" onclick="go('home')" aria-label="Kanto Shop inicio"><span class="ball"></span>Kanto Shop</button>
+<form class="sb" onsubmit="event.preventDefault();doSearch($('#q').value)" role="search"><input id="q" placeholder="Busca Pikachu, Gengar, 151, Evoluciones Prismáticas…" autocomplete="off" oninput="sug(this.value)" aria-label="Buscar"><button>Buscar</button><div class="sg" id="sg"></div></form>
+<div class="ic"><button onclick="acct()" aria-label="Mi cuenta">👤</button><button onclick="go('wish')" aria-label="Lista de deseos">♡<i id="wc">0</i></button><button onclick="drawer(1)" aria-label="Carrito">🛒<i id="cc">0</i></button></div>
+</div>
+<nav><div class="w" id="nav"></div></nav></header>
+<main class="w" id="app"></main>
+<footer><div class="w"><div class="g">
+<div><h4>Atención al cliente</h4><a onclick="ask(0)">Políticas de envío</a><a onclick="ask(4)">Cambios y devoluciones</a><a onclick="chat(1)">Preguntas frecuentes (FAQ)</a><a onclick="ask(7)">Guía de tallas</a></div>
+<div><h4>Información legal</h4><a onclick="toast('Términos y condiciones: disponibles pronto')">Términos y condiciones</a><a onclick="toast('Política de privacidad: disponible pronto')">Política de privacidad</a><a onclick="ask(9)">📕 Libro de reclamaciones</a><a href="mailto:manuel.rojas.garay@gmail.com">Contacto</a></div>
+<div><h4>Métodos de pago</h4><div class="pay"><span>Visa</span><span>Mastercard</span><span>Yape</span><span>Plin</span><span>Transferencia</span></div></div>
+<div><h4>Comunidad</h4><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a><a href="https://wa.me/51960977650" target="_blank" rel="noopener">WhatsApp</a><a href="https://discord.com" target="_blank" rel="noopener">Discord</a></div>
+</div><p style="margin:24px 0 0;opacity:.7">© 2026 Kanto Shop, Perú. Tienda independiente; Pokémon y sus marcas pertenecen a sus respectivos titulares.</p></div></footer>
+
+<div class="dr" id="dr"><div style="display:flex;justify-content:space-between;align-items:center;padding:14px 16px"><h2>Tu carrito</h2><button onclick="drawer(0)" style="background:none;color:var(--tx);font-size:22px" aria-label="Cerrar">✕</button></div><div class="bd" id="cart"></div><div id="cf" style="padding:14px 16px;border-top:1px solid var(--ln)"></div></div>
+<div class="toast" id="ts"></div>
+<button id="fab" onclick="chat()" aria-label="Abrir chat de ayuda">💬</button>
+<section id="chat" aria-label="Chat de ayuda"><header><span>Ash, tu asistente 🤖</span><button onclick="chat(0,1)" aria-label="Cerrar chat">✕</button></header><div id="msgs"></div><div class="fq" id="fq"></div>
+<div class="cf"><input id="cn" placeholder="Tu nombre"><input id="cm" placeholder="Escribe tu consulta o pregunta…" onkeydown="if(event.key==='Enter')free()"><div class="row"><button style="background:#16a34a" onclick="sendWA()">Enviar a WhatsApp</button><button style="background:#3b4cca" onclick="sendMail()">Enviar por correo</button></div></div></section>
+
+<script>
+const $=s=>document.querySelector(s),WA="51960977650",MAIL="manuel.rojas.garay@gmail.com",fmt=n=>"S/ "+n.toFixed(2);
+const CATS={tcg:"TCG",peluches:"Peluches",ropa:"Ropa",accesorios:"Accesorios",ofertas:"Ofertas"};
+const SUBS={TCG:["Cartas sueltas","Booster Boxes","Elite Trainer Boxes"],Peluches:["Peluches"],Ropa:["Camisetas","Poleras","Gorras"],Llaveros:["Llaveros"],Accesorios:["Mochilas"]};
+const L3="Español|Inglés|Japonés";
+// id,nombre,cat,sub,precio,antes,emoji,pokemon,idiomas,condición,stock,color,edición
+const D=[[1,"Booster Box Escarlata y Púrpura 151","tcg","Booster Boxes",389,429,"📦","Mew",L3,"Sellado",1,"#e0568c","151"],
+[2,"Elite Trainer Box Chispas Fulgurantes","tcg","Elite Trainer Boxes",219,0,"🎁","Pikachu","Español|Inglés","Sellado",1,"#f2a900","Chispas Fulgurantes"],
+[3,"Charizard ex Holo","tcg","Cartas sueltas",89,0,"🔥","Charizard",L3,"Near Mint",1,"#e8590c","Obsidiana en Llamas"],
+[4,"Gengar VMAX Alt Art","tcg","Cartas sueltas",249,0,"👻","Gengar","Inglés|Japonés","Excelente",1,"#6741d9","Fusion Strike"],
+[5,"Pikachu VMAX Promo","tcg","Cartas sueltas",59,79,"⚡","Pikachu",L3,"Jugada",1,"#f2a900","Promo"],
+[6,"Elite Trainer Box Evoluciones Prismáticas","tcg","Elite Trainer Boxes",259,0,"✨","Eevee","Español|Inglés","Sellado",0,"#3b4cca","Evoluciones Prismáticas"],
+[7,"Peluche Gengar 30 cm","peluches","Peluches",119,139,"👻","Gengar","","Nuevo",1,"#6741d9",""],
+[8,"Peluche Pikachu 30 cm","peluches","Peluches",99,0,"⚡","Pikachu","","Nuevo",1,"#f2a900",""],
+[9,"Peluche Snorlax Gigante","peluches","Peluches",189,0,"😴","Snorlax","","Nuevo",1,"#2b8a9e",""],
+[10,"Peluche Eevee 20 cm","peluches","Peluches",79,0,"🌟","Eevee","","Nuevo",1,"#b0793a",""],
+[11,"Polera Pikachu Oversize","ropa","Poleras",129,0,"⚡","Pikachu","","Nuevo",1,"#e6a700",""],
+[12,"Camiseta Gengar","ropa","Camisetas",69,89,"👻","Gengar","","Nuevo",1,"#6741d9",""],
+[13,"Camiseta Charizard","ropa","Camisetas",69,0,"🔥","Charizard","","Nuevo",1,"#e8590c",""],
+[14,"Gorra Pokéball","ropa","Gorras",59,0,"🧢","Pokéball","","Nuevo",1,"#e63a1e",""],
+[15,"Llavero Pikachu","accesorios","Llaveros",25,0,"🔑","Pikachu","","Nuevo",1,"#f2a900",""],
+[16,"Llavero Pokéball Metálico","accesorios","Llaveros",29,35,"🔑","Pokéball","","Nuevo",1,"#e63a1e",""],
+[17,"Mochila Mimikyu","accesorios","Mochilas",149,0,"🎒","Mimikyu","","Nuevo",1,"#c9a227",""]].map(a=>({id:a[0],n:a[1],c:a[2],s:a[3],p:a[4],o:a[5],e:a[6],pk:a[7],l:a[8]?a[8].split("|"):[],cd:a[9],st:a[10],k:a[11],ed:a[12]}));
+const POP=[["Pikachu","⚡"],["Gengar","👻"],["Charizard","🔥"],["Eevee","🌟"],["Mew","✨"],["Snorlax","😴"],["Mimikyu","🎭"],["Lucario","🥊"],["Bulbasaur","🌿"],["Squirtle","💧"]];
+const SL=[{t:"Preventa: Evoluciones Prismáticas",s:"Asegura tu Elite Trainer Box antes del lanzamiento.",k:"#3b4cca,#6741d9",b:"Ver preventa",f:"pid(6)"},{t:"Festival Gengar: hasta 20% dto.",s:"Peluches y ropa del Pokémon más travieso.",k:"#4c2a85,#14213d",b:"Ver ofertas",f:"go('cat','ofertas')"},{t:"Envío gratis desde S/ 199",s:"A todo el Perú, con empaque seguro para tus cartas.",k:"#e63a1e,#a61e08",b:"Explorar catálogo",f:"go('cat','all')"}];
+let S={v:"home",cat:"all",q:"",subs:[],langs:[],cd:[],max:500,av:"",pid:0,img:0,var:""},cart=[],wish=[],sl=0,tm;
+const pOf=id=>D.find(p=>p.id==id);
+const vis=(p,i=0)=>`<div class="vis" style="--k:${p.k}"><span style="${i==1?'transform:scale(1.25)':i==2?'transform:rotate(-12deg)':''}">${p.e}</span><b>${p.pk}</b></div>`;
+function go(v,c){S.v=v;if(c!==undefined){S.cat=c;S.subs=[];S.langs=[];S.cd=[];S.av="";S.max=500;S.q=""}render()}
+function pid(i){S.v="prod";S.pid=i;S.img=0;const p=pOf(i);S.var=vars(p)[0];render()}
+function vars(p){return p.c=="tcg"?p.l:p.c=="ropa"?(p.s=="Gorras"?["Talla única"]:["S","M","L","XL"]):p.c=="peluches"?["Pequeño","Mediano","Grande"].slice(0,p.n.includes("Gigante")?3:2):["Único"]}
+function doSearch(q){q=q.trim();$('#sg').style.display="none";S.v="cat";S.cat="all";S.q=q;S.subs=[];S.langs=[];S.cd=[];S.av="";S.max=500;render()}
+function sug(v){v=v.toLowerCase().trim();const b=$('#sg');if(!v){b.style.display="none";return}
+const m=[...new Set(D.flatMap(p=>[p.pk,p.ed,p.n]).filter(x=>x&&x.toLowerCase().includes(v)))].slice(0,6);
+b.innerHTML=m.map(x=>`<button type="button" onclick="$('#q').value='${x}';doSearch('${x}')">🔍 ${x}</button>`).join("");b.style.display=m.length?"block":"none"}
+function card(p){const w=wish.includes(p.id);return `<article class="card">${p.o?`<span class="tag">-${Math.round(100-p.p/p.o*100)}%</span>`:""}${!p.st?`<span class="tag pv">Preventa</span>`:""}<button class="hb" onclick="tw(${p.id})" aria-label="Agregar a deseos">${w?"❤️":"♡"}</button><div onclick="pid(${p.id})">${vis(p)}</div><div class="cb"><h3 onclick="pid(${p.id})">${p.n}</h3><div class="pr">${fmt(p.p)}${p.o?`<s>${fmt(p.o)}</s>`:""}</div><button class="btn r" onclick="pid(${p.id})">${p.st?"Ver producto":"Reservar"}</button></div></article>`}
+function render(){clearInterval(tm);const a=$('#app');
+$('#nav').innerHTML=Object.entries(CATS).map(([k,v])=>`<button class="${k=='ofertas'?'of':''} ${S.v=='cat'&&S.cat==k?'on':''}" onclick="go('cat','${k}')">${v}</button>`).join("");
+$('#cc').textContent=cart.reduce((a,b)=>a+b.q,0);$('#wc').textContent=wish.length;
+if(S.v=="home")home(a);else if(S.v=="cat")catalog(a);else if(S.v=="prod")prod(a);else if(S.v=="wish")a.innerHTML=`<h2 class="t">Mi lista de deseos</h2>${wish.length?`<div class="grid">${wish.map(i=>card(pOf(i))).join("")}</div>`:"<p>Aún no guardaste productos. Toca el ♡ en cualquier ficha.</p>"}`;
+scrollTo(0,0);drawerR()}
+function home(a){a.innerHTML=`<section class="hero" aria-roledescription="carrusel">${SL.map((s,i)=>{const[c1,c2]=s.k.split(",");return `<div class="sl ${i?'':'on'}" style="background:linear-gradient(120deg,${c1},${c2})"><div class="bg"></div><div><h1>${s.t}</h1><p>${s.s}</p><button class="btn" onclick="${s.f}">${s.b}</button></div></div>`}).join("")}<div class="dots">${SL.map((_,i)=>`<button class="${i?'':'on'}" onclick="slide(${i})" aria-label="Slide ${i+1}"></button>`).join("")}</div></section>
+<h2 class="t">Categorías</h2><div class="qc">${[["tcg","🎴","#3b4cca"],["peluches","🧸","#e0568c"],["ropa","👕","#2b8a9e"],["accesorios","🔑","#e8590c"],["ofertas","🏷️","#e63a1e"]].map(c=>`<button style="background:${c[2]}" onclick="go('cat','${c[0]}')"><span>${c[1]}</span>${CATS[c[0]]}</button>`).join("")}</div>
+<h2 class="t">Los más vendidos<small>Favoritos de los entrenadores</small></h2><div class="grid">${[1,3,4,7,8,11].map(i=>card(pOf(i))).join("")}</div>
+<h2 class="t">Busca por Pokémon</h2><div class="pk">${POP.map(p=>`<button onclick="doSearch('${p[0]}')"><span>${p[1]}</span>${p[0]}</button>`).join("")}</div>
+<h2 class="t">Novedades<small>Recién llegados</small></h2><div class="grid">${[6,2,17,10].map(i=>card(pOf(i))).join("")}</div>
+<h2 class="t">Compra con tranquilidad</h2><div class="tr"><div><em>✅</em><span><b>100% originales</b><small>Producto oficial garantizado</small></span></div><div><em>🔒</em><span><b>Pago seguro</b><small>Visa, Mastercard, Yape, Plin</small></span></div><div><em>🚚</em><span><b>Entrega rápida</b><small>Lima 1-3 días · Provincias 3-7 días</small></span></div><div><em>🛡️</em><span><b>Empaque protegido</b><small>Cartas con sleeve y top loader</small></span></div></div>`;
+tm=setInterval(()=>slide((sl+1)%3),5500)}
+function slide(i){sl=i;document.querySelectorAll('.sl').forEach((e,j)=>e.classList.toggle('on',j==i));document.querySelectorAll('.dots button').forEach((e,j)=>e.classList.toggle('on',j==i))}
+function filt(){return D.filter(p=>{const q=S.q.toLowerCase();return(S.cat=="all"||(S.cat=="ofertas"?p.o:p.c==S.cat))&&(!q||[p.n,p.pk,p.ed,p.s,p.c].join(" ").toLowerCase().includes(q))&&(!S.subs.length||S.subs.includes(p.s))&&(!S.langs.length||p.l.some(l=>S.langs.includes(l)))&&(!S.cd.length||S.cd.includes(p.cd))&&p.p<=S.max&&(!S.av||(S.av=="st"?p.st:!p.st))})}
+function tg(k,v){const a=S[k];a.includes(v)?a.splice(a.indexOf(v),1):a.push(v);catalog($('#app'))}
+function chk(k,v){return `<label><input type="checkbox" ${S[k].includes(v)?"checked":""} onchange="tg('${k}','${v}')"> ${v}</label>`}
+function catalog(a){const r=filt();a.innerHTML=`<div class="cat"><aside><h4>Categoría</h4>${Object.entries(SUBS).map(([g,l])=>`<b style="font-size:13px;color:var(--mu)">${g}</b>${l.map(s=>chk("subs",s)).join("")}`).join("")}<h4>Idioma (TCG)</h4>${["Español","Inglés","Japonés"].map(l=>chk("langs",l)).join("")}<h4>Estado de la carta</h4>${["Sellado","Near Mint","Excelente","Jugada"].map(l=>chk("cd",l)).join("")}<h4>Precio hasta ${fmt(S.max)}</h4><input type="range" min="20" max="500" step="10" value="${S.max}" style="width:100%" oninput="S.max=+this.value;this.previousElementSibling.textContent='Precio hasta '+fmt(S.max)" onchange="catalog($('#app'))"><h4>Disponibilidad</h4><label><input type="radio" name="av" ${S.av=="st"?"checked":""} onchange="S.av='st';catalog($('#app'))"> En stock</label><label><input type="radio" name="av" ${S.av=="pv"?"checked":""} onchange="S.av='pv';catalog($('#app'))"> Preventa</label><label><input type="radio" name="av" ${!S.av?"checked":""} onchange="S.av='';catalog($('#app'))"> Todos</label></aside>
+<section><h2 style="font-size:28px;margin-bottom:4px">${S.q?`Resultados para “${S.q}”`:CATS[S.cat]||"Todo el catálogo"}</h2><p style="color:var(--mu);margin:0 0 14px">${r.length} producto${r.length==1?"":"s"}</p>${r.length?`<div class="grid">${r.map(card).join("")}</div>`:`<p>No encontramos resultados. Prueba quitar filtros o buscar otro Pokémon.</p><button class="btn" onclick="go('cat','all')">Ver todo</button>`}</section></div>`}
+function prod(a){const p=pOf(S.pid),vs=vars(p),rel=D.filter(x=>x.id!=p.id&&(x.pk==p.pk||x.c==p.c)).slice(0,4);
+a.innerHTML=`<p><a href="#" onclick="event.preventDefault();go('cat','${p.c}')">← ${CATS[p.c]}</a></p><div class="det"><div>${vis(p,S.img)}<div class="th">${["Frente","Detalle","Empaque"].map((x,i)=>`<button class="${S.img==i?'on':''}" onclick="S.img=${i};prod($('#app'))">${x}</button>`).join("")}</div></div>
+<div><h1 style="font-size:30px;margin-bottom:8px">${p.n}</h1><span class="seal">🛡️ Producto 100% oficial y original</span><div class="pr" style="font-size:30px;margin:14px 0">${fmt(p.p)}${p.o?`<s>${fmt(p.o)}</s>`:""}</div><p style="color:var(--mu)">${p.st?"✔ En stock":"⏳ Preventa: se envía al lanzamiento"} · Estado: ${p.cd}${p.ed?" · Edición: "+p.ed:""}</p>
+<b>${p.c=="tcg"?"Idioma":p.c=="ropa"?"Talla":p.c=="peluches"?"Tamaño":"Variante"}</b><div class="opt">${vs.map(v=>`<button class="${S.var==v?'on':''}" onclick="S.var='${v}';prod($('#app'))">${v}</button>`).join("")}</div>
+<button class="btn r" style="width:100%;padding:14px;font-size:17px" onclick="add(${p.id})">${p.st?"Añadir al carrito":"Reservar en preventa"}</button>
+${p.c=="ropa"&&p.s!="Gorras"?`<details style="margin-top:16px"><summary style="cursor:pointer;font-weight:600">📏 Guía de tallas</summary><table><tr><th>Talla</th><th>Pecho (cm)</th><th>Largo (cm)</th></tr><tr><td>S</td><td>96</td><td>67</td></tr><tr><td>M</td><td>102</td><td>70</td></tr><tr><td>L</td><td>108</td><td>73</td></tr><tr><td>XL</td><td>114</td><td>76</td></tr></table></details>`:""}</div></div>
+<h2 class="t">También te podría gustar</h2><div class="grid">${rel.map(card).join("")}</div>`}
+function tw(i){wish.includes(i)?wish.splice(wish.indexOf(i),1):wish.push(i);toast(wish.includes(i)?"Guardado en tu lista de deseos":"Quitado de deseos");render2()}
+function render2(){const y=scrollY;render();scrollTo(0,y)}
+function add(i){const p=pOf(i),v=S.var,x=cart.find(c=>c.id==i&&c.v==v);x?x.q++:cart.push({id:i,v,q:1});toast("✔ Añadido al carrito");$('#cc').textContent=cart.reduce((a,b)=>a+b.q,0);drawer(1)}
+function drawer(o){$('#dr').classList.toggle('on',!!o);drawerR()}
+function drawerR(){const t=cart.reduce((a,c)=>a+pOf(c.id).p*c.q,0),f=Math.min(100,t/199*100);
+$('#cart').innerHTML=cart.length?`<p style="font-size:14px;margin:0">${t>=199?"🎉 ¡Tienes envío gratis!":"Te faltan "+fmt(199-t)+" para envío gratis"}</p><div class="bar"><i style="width:${f}%"></i></div>`+cart.map((c,i)=>{const p=pOf(c.id);return `<div class="ci"><div class="m" style="--k:${p.k}">${p.e}</div><div style="flex:1"><b>${p.n}</b><br><small>${c.v} · ${fmt(p.p)}</small></div><button onclick="cq(${i},-1)" style="padding:2px 9px">−</button>${c.q}<button onclick="cq(${i},1)" style="padding:2px 9px">+</button></div>`}).join(""):"<p>Tu carrito está vacío.</p>";
+$('#cf').innerHTML=cart.length?`<div style="display:flex;justify-content:space-between;font-weight:700;margin-bottom:10px"><span>Total</span><span>${fmt(t)}</span></div><div class="f" style="display:grid;gap:6px"><input id="on" placeholder="Tu nombre"><input id="op" placeholder="Tu teléfono o distrito de entrega"></div><button class="btn r" style="width:100%;margin-top:8px" onclick="order('wa')">Enviar pedido por WhatsApp</button><button class="btn o" style="width:100%;margin-top:6px" onclick="order('mail')">Enviar pedido por correo</button>`:""}
+function cq(i,d){cart[i].q+=d;if(cart[i].q<1)cart.splice(i,1);render2()}
+function orderTxt(){const t=cart.reduce((a,c)=>a+pOf(c.id).p*c.q,0);return `Hola Kanto Shop, quiero hacer este pedido:\n`+cart.map(c=>`• ${c.q} x ${pOf(c.id).n} (${c.v}) - ${fmt(pOf(c.id).p*c.q)}`).join("\n")+`\nTotal: ${fmt(t)}\nNombre: ${$('#on').value||"-"}\nContacto/Distrito: ${$('#op').value||"-"}`}
+function order(k){out(k,orderTxt(),"Nuevo pedido web Kanto Shop")}
+function out(k,txt,sub){if(k=="wa")window.open(`https://wa.me/${WA}?text=${encodeURIComponent(txt)}`,"_blank");else location.href=`mailto:${MAIL}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(txt)}`}
+function acct(){toast("Inicio de sesión disponible pronto. Compra como invitado por WhatsApp.")}
+function toast(m){const t=$('#ts');t.textContent=m;t.style.display="block";clearTimeout(t._t);t._t=setTimeout(()=>t.style.display="none",2600)}
+// Chatbot: 10 preguntas básicas
+const FAQ=[["¿Hacen envíos a todo el Perú?","Sí, enviamos a todo el país. Lima: 1-3 días hábiles. Provincias: 3-7 días hábiles, por agencia o courier."],
+["¿Cuándo el envío es gratis?","El envío es gratis en compras desde S/ 199."],
+["¿Qué métodos de pago aceptan?","Visa, Mastercard, Yape, Plin y transferencia bancaria."],
+["¿Los productos son originales?","Sí. Todo nuestro catálogo es 100% oficial y original, y las cartas se envían protegidas."],
+["¿Aceptan cambios o devoluciones?","Aceptamos cambios por defecto de fábrica o error de envío. Escríbenos con fotos dentro de los 7 días de recibido el producto. Los productos sellados no deben estar abiertos."],
+["¿En qué idiomas hay cartas TCG?","Manejamos cartas y cajas en español, inglés y japonés. Filtra por idioma y estado en el catálogo."],
+["¿Cómo funciona la preventa?","Reservas tu producto ahora y lo enviamos apenas llega tras el lanzamiento. Te avisamos por WhatsApp."],
+["¿Cómo elijo mi talla?","Cada prenda tiene una guía de tallas en su ficha. Si dudas entre dos tallas, te recomendamos la mayor."],
+["¿Tienen tienda física o recojo?","Vendemos online. Si deseas coordinar un recojo, escríbenos por WhatsApp."],
+["¿Cómo presento un reclamo o contacto a un asesor?","Puedes usar el Libro de Reclamaciones virtual o escribirnos aquí abajo: tu mensaje llega a nuestro WhatsApp y correo."]];
+const KW=[["envío|envio|delivery|días","0"],["gratis","1"],["pago|yape|plin|tarjeta","2"],["original|autent|falso","3"],["cambio|devol","4"],["idioma|español|japon|inglés","5"],["preventa|reserva","6"],["talla|medida","7"],["tienda|recojo|local","8"],["reclamo|contacto|asesor","9"]];
+let cLog=[],opened=0;
+function bub(c,t){$('#msgs').insertAdjacentHTML("beforeend",`<div class="${c}">${t.replace(/</g,"&lt;")}</div>`);$('#msgs').scrollTop=1e9;cLog.push((c=="m2"?"Cliente: ":"Bot: ")+t)}
+function ask(i){chat(1);bub("m2",FAQ[i][0]);setTimeout(()=>bub("m1",FAQ[i][1]),250)}
+function free(){const v=$('#cm').value.trim();if(!v)return;bub("m2",v);const k=KW.find(k=>new RegExp(k[0],"i").test(v));setTimeout(()=>bub("m1",k?FAQ[+k[1]][1]+"\n\nSi necesitas algo más, usa los botones de abajo para enviarnos tu consulta.":"Gracias por tu mensaje. Toca “Enviar a WhatsApp” o “Enviar por correo” y un asesor te responderá pronto."),250)}
+function chat(open,close){const c=$('#chat');c.classList.toggle('on',close?false:open?true:!c.classList.contains('on'));if(c.classList.contains('on')&&!opened){opened=1;bub("m1","¡Hola, entrenador! Soy Ash, el asistente de Kanto Shop. Elige una pregunta frecuente o escribe la tuya.")}}
+function chatTxt(){const m=$('#cm').value.trim();return `Consulta desde la web Kanto Shop\nNombre: ${$('#cn').value||"-"}\nMensaje: ${m||"(ver conversación)"}\n\nConversación:\n${cLog.join("\n")}`}
+function sendWA(){out("wa",chatTxt())}function sendMail(){out("mail",chatTxt(),"Consulta web Kanto Shop")}
+$('#fq').innerHTML=FAQ.map((f,i)=>`<button onclick="ask(${i})">${f[0]}</button>`).join("");
+render();
+</script></body></html>
