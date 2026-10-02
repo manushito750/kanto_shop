@@ -135,7 +135,7 @@ footer a{display:block;text-decoration:none;padding:2px 0;cursor:pointer}footer 
 <div class="toast" id="ts"></div>
 <button id="fab" onclick="chat()" aria-label="Abrir chat de ayuda"><span class="ball"></span></button>
 <section id="chat" aria-label="Chat de ayuda"><header><span>⚡ Asistente Kanto Shop</span><button onclick="chat(0,1)" aria-label="Cerrar chat">✕</button></header><div id="msgs"></div>
-<div class="cf"><label for="cm" style="font-size:13px;font-weight:600">✍️ Escribe tu consulta</label><div class="row"><textarea id="cm" rows="2" placeholder="Ej: ¿Tienen Gengar en stock?" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();free()}"></textarea><button style="background:var(--red);flex:none;padding:0 16px;font-size:18px" onclick="free()" aria-label="Enviar consulta">➤</button></div><input id="cn" placeholder="Tu nombre (opcional)"><div class="row"><button style="background:#16a34a" onclick="sendWA()">Enviar a WhatsApp</button><button style="background:#3b4cca" onclick="sendMail()">Enviar por correo</button></div></div></section>
+<div class="cf"><label for="cm" style="font-size:13px;font-weight:600">✍️ Escribe tu consulta</label><div class="row"><textarea id="cm" rows="2" placeholder="Ej: ¿Tienen Gengar en stock?" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();free()}"></textarea><button style="background:var(--red);flex:none;padding:0 16px;font-size:18px" onclick="free()" aria-label="Enviar consulta">➤</button></div></div></section>
 
 <script>
 const $=s=>document.querySelector(s),WA="51960977650",MAIL="manuel.rojas.garay@gmail.com",fmt=n=>"S/ "+n.toFixed(2);
@@ -232,7 +232,7 @@ try{const r=await fetch(N8N,{method:"POST",headers:{"Content-Type":"application/
 catch(e){const k=KW.find(k=>new RegExp(k[0],"i").test(v));t=k?FAQ[+k[1]][1]:"Ahora mismo no puedo conectarme con el asistente. Toca “Enviar a WhatsApp” y un asesor te responderá pronto."}
 w.textContent=t;cLog[n]="Bot: "+t;$('#msgs').scrollTop=1e9}
 function chat(open,close){const c=$('#chat');c.classList.toggle('on',close?false:open?true:!c.classList.contains('on'));if(c.classList.contains('on')&&!opened){opened=1;bub("m1","⚡ ¡Hola, entrenador! Soy el asistente de Kanto Shop. Escríbeme lo que buscas y te ayudo.")}}
-function chatTxt(){const m=$('#cm').value.trim();return `Consulta desde la web Kanto Shop\nNombre: ${$('#cn').value||"-"}\nMensaje: ${m||"(ver conversación)"}\n\nConversación:\n${cLog.join("\n")}`}
+function chatTxt(){const m=$('#cm').value.trim();return `Consulta desde la web Kanto Shop\nNombre: ${"-"}\nMensaje: ${m||"(ver conversación)"}\n\nConversación:\n${cLog.join("\n")}`}
 function sendWA(){out("wa",chatTxt())}function sendMail(){out("mail",chatTxt(),"Consulta web Kanto Shop")}
 render();
 </script></body></html>
