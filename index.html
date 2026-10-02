@@ -100,12 +100,15 @@ footer a{display:block;text-decoration:none;padding:2px 0;cursor:pointer}footer 
 #fab .ball{width:38px;height:38px}#fab .ball:after{width:12px;height:12px;margin:-6px}
 #chat{position:fixed;right:18px;bottom:calc(90px + env(safe-area-inset-bottom,0px));width:min(370px,calc(100% - 36px));height:min(560px,calc(100% - 130px));background:var(--card);border:1px solid var(--ln);border-radius:16px;z-index:50;display:none;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px #0006}
 #chat.on{display:flex}
+#msgs{min-height:0}
+.cf textarea{flex:1;min-width:0;resize:none;padding:8px;border-radius:8px;border:2px solid var(--yel);background:var(--card);color:var(--tx);font:inherit;font-size:14px}
+.cf ::placeholder{color:var(--mu);opacity:1}
 #chat header{position:static;padding:12px 14px;background:var(--red);display:flex;justify-content:space-between;align-items:center;font-weight:700}
 #chat header button{background:none;color:#fff;font-size:20px}
 #msgs{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px}
 .m1,.m2{max-width:88%;padding:8px 12px;border-radius:14px;font-size:14px;white-space:pre-line}
 .m1{background:var(--bg);align-self:flex-start}.m2{background:var(--red);color:#fff;align-self:flex-end}
-.fq{display:flex;gap:6px;overflow-x:auto;padding:6px 10px;border-top:1px solid var(--ln)}
+.fq{display:flex;flex-wrap:wrap;gap:6px;max-height:84px;overflow-y:auto;overflow-x:hidden;padding:6px 10px;border-top:1px solid var(--ln)}
 .fq button{flex:none;font-size:12px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);padding:5px 10px;border-radius:99px}
 .cf{padding:8px 10px;border-top:1px solid var(--ln);display:grid;gap:6px}
 .cf .row{display:flex;gap:6px}.cf .row button{flex:1;padding:8px;font-size:13px;font-weight:700;color:#fff}
@@ -132,7 +135,7 @@ footer a{display:block;text-decoration:none;padding:2px 0;cursor:pointer}footer 
 <div class="toast" id="ts"></div>
 <button id="fab" onclick="chat()" aria-label="Abrir chat de ayuda"><span class="ball"></span></button>
 <section id="chat" aria-label="Chat de ayuda"><header><span>⚡ Asistente Kanto Shop</span><button onclick="chat(0,1)" aria-label="Cerrar chat">✕</button></header><div id="msgs"></div><div class="fq" id="fq"></div>
-<div class="cf"><input id="cn" placeholder="Tu nombre"><div class="row"><input id="cm" placeholder="Escribe tu consulta o pregunta…" onkeydown="if(event.key==='Enter')free()"><button style="background:var(--red);flex:none;padding:0 16px;font-size:16px" onclick="free()" aria-label="Enviar">➤</button></div><div class="row"><button style="background:#16a34a" onclick="sendWA()">Enviar a WhatsApp</button><button style="background:#3b4cca" onclick="sendMail()">Enviar por correo</button></div></div></section>
+<div class="cf"><label for="cm" style="font-size:13px;font-weight:600">✍️ Escribe tu consulta</label><div class="row"><textarea id="cm" rows="2" placeholder="Ej: ¿Tienen Gengar en stock?" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();free()}"></textarea><button style="background:var(--red);flex:none;padding:0 16px;font-size:18px" onclick="free()" aria-label="Enviar consulta">➤</button></div><input id="cn" placeholder="Tu nombre (opcional)"><div class="row"><button style="background:#16a34a" onclick="sendWA()">Enviar a WhatsApp</button><button style="background:#3b4cca" onclick="sendMail()">Enviar por correo</button></div></div></section>
 
 <script>
 const $=s=>document.querySelector(s),WA="51960977650",MAIL="manuel.rojas.garay@gmail.com",fmt=n=>"S/ "+n.toFixed(2);
